@@ -2,7 +2,7 @@ import { Router, Request } from "express";
 const router:Router = Router();
 import {usersController} from '../controllers/usersController';
 
-router.get('/users', usersController.index);
-router.get('/users/add', usersController.renderFormUser)
-
+router.get('/', usersController.index);
+router.get('/add', usersController.renderFormUser)
+router.post('/add', usersController.saveUser)
 export default router;

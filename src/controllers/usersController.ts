@@ -1,4 +1,5 @@
 import { Request, Response } from "express"; 
+import { send } from "process";
 
 class UsersController {
 
@@ -7,9 +8,14 @@ class UsersController {
     }
 
     public index (req:Request, res: Response):void{
-        res.render('/users/index', {
+        res.render('./users/index', {
             title: 'Users'
         });
+    }
+
+    public saveUser(req:Request, res: Response){
+        console.log(req.body)
+        res.send('recived')
     }
 }
 

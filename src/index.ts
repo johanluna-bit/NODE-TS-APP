@@ -4,6 +4,7 @@ import { engine } from 'express-handlebars';
 
 //Importing Routes
 import IndexRoutes from './routes'
+import UsersRoutes from './routes/users'
 
 //Initializations
 const app = express();
@@ -25,7 +26,8 @@ app.use(express.json()); //entender JSON que lleguen al servidor
 app.use(express.urlencoded({extended: false})); //cuando un formularo HTTP envia un dato, se puede leer el dato
 
 //Routes
-app.use('/users', IndexRoutes); //app.use para multiples rutas por que se exporta un objeto con muchas rutas
+app.use ('/', IndexRoutes)
+app.use('/users', UsersRoutes); //app.use para multiples rutas por que se exporta un objeto con muchas rutas
 
 //Statics Files
 app.use(express.static(path.join(__dirname, 'public')));
