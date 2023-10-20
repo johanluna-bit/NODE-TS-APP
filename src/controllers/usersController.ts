@@ -17,13 +17,22 @@ class UsersController {
     }
 
     public async saveUser(req:Request, res: Response){
-        const { name, lastname, email, password, adress, description, typeUser} = req.body;
+        const { _id, name, lastname, email, password, adress, description, typeUser} = req.body;
         const user:User= new userModel(req.body);
         await user.save();
-        res.redirect('/users');
-        
         console.log(req.body)
-        res.send('recived')
+    }
+
+    public async deleteUser(req: Request, res: Response): Promise<void> {
+        const id = req.params.id;
+        const user = await userModel.findById(id);
+    
+        if (!user) {
+            res.status(404).json({ message: 'User not found' });
+        }
+    
+        await user?.deleteOne();
+        res.status(204).send();
     }
 }
 
