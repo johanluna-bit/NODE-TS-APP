@@ -6,6 +6,12 @@ import { engine } from 'express-handlebars';
 import IndexRoutes from './routes'
 import UsersRoutes from './routes/users'
 
+// -- Solucion de permisos en handlerbars
+import Handlebars from 'handlebars';
+import { allowInsecurePrototypeAccess } from '@handlebars/allow-prototype-access'; //libreria para volver a version antigua de hbs que no bloquea los prototipos
+
+
+
 //Initializations
 const app = express();
 import './database';
@@ -18,7 +24,8 @@ app.engine('.hbs', engine({ //Definir como funciona el modulo de plantilla
     layoutsDir: path.join(app.get('views'), 'layouts'),
     partialsDir: path.join(app.get('views'), 'partials'),
     helpers: require('./lib/helpers'),
-    defaultLayout: 'main'
+    defaultLayout: 'main',
+    handlebars: allowInsecurePrototypeAccess(Handlebars) //consede los permisos de la libreria y evita los problemas de acceso
 }));
 app.set('view engine', '.hbs');
 
