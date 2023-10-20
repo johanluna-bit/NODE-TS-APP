@@ -1,5 +1,5 @@
 import { Request, Response } from "express"; 
-import { send } from "process";
+import User from '../models/users';
 
 class UsersController {
 
@@ -14,6 +14,9 @@ class UsersController {
     }
 
     public saveUser(req:Request, res: Response){
+        const { name, lastname, email, password, adress, description, typeUser} = req.body;
+        const user = new User(req.body);
+        
         console.log(req.body)
         res.send('recived')
     }

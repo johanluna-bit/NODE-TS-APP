@@ -8,6 +8,7 @@ import UsersRoutes from './routes/users'
 
 //Initializations
 const app = express();
+import './database';
 
 //Settings
 app.set('port', process.env.PORT || 3000);
