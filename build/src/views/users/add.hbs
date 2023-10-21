@@ -1,0 +1,38 @@
+<div class="col-md-4 mx-auto">
+    <div class="card card-body">
+        
+    <form action="/users/add" method="POST">
+    <h1 >Sing Up</h1>
+        <div class="div-formgroup">
+            <input type="number" name="id" class="form-control" placeholder="number ID" autofocus required>
+        </div>
+        <div class="div-formgroup">
+            <input type="text" name="name" class="form-control" placeholder="First Name" autofocus required>
+        </div>
+        <div class="div-formgroup">
+            <input type="text" name="lastname" class="form-control" placeholder="Last Name" requiered>
+        </div>
+        <div class="div-formgroup">
+            <input type="email" name="email" class="form-control" placeholder="E-mail" required>
+        </div>
+         <div class="div-formgroup">
+            <input type="password" minlength="8" ="password" class="form-control" placeholder="Password" required>
+        </div>
+         <div class="div-formgroup">
+            <input type="text" name="adress" class="form-control" placeholder="Short Adress">
+        </div>
+
+         <div class="div-formgroup">
+            <input type="text" name="typeUser" class="form-control" placeholder="User or Freelancer" required>
+        </div>
+
+        <div class="div-formgroup">
+            <input type="text" name="description" class="form-control" placeholder="Some description of you..." required>
+        </div>
+        
+        <button class="btn btn-primary btn-block">
+            SAVE
+        </button>
+    </form>
+</div>
+</div>
