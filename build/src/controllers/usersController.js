@@ -35,16 +35,5 @@ class UsersController {
             console.log(req.body);
         });
     }
-    deleteUser(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const id = req.params.id;
-            const user = yield users_1.default.findById(id);
-            if (!user) {
-                res.status(404).json({ message: 'User not found' });
-            }
-            yield (user === null || user === void 0 ? void 0 : user.deleteOne());
-            res.status(204).send();
-        });
-    }
 }
 exports.usersController = new UsersController();

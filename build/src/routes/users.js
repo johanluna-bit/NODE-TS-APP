@@ -6,5 +6,4 @@ const usersController_1 = require("../controllers/usersController");
 router.get('/', usersController_1.usersController.index);
 router.get('/add', usersController_1.usersController.renderFormUser);
 router.post('/add', usersController_1.usersController.saveUser);
-router.delete('/add', usersController_1.usersController.deleteUser);
 exports.default = router;
